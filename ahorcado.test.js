@@ -47,5 +47,13 @@ test("adivinar letra", () => {
 // TestNoAdivinarLetra
 
 test("no adivinar letra", () => {
-        
+  //Arrange
+  palabraAdivinar = "pepe"
+  letraAdivinada = 'o'
+
+  // Act 
+  const resultado = adivinarLetra(palabraAdivinar, letraAdivinada)
+
+  // Assert
+  expect(resultado).toBe(false);
 })
