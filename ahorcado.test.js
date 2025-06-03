@@ -1,4 +1,4 @@
-const {adivinarPalabra, adivinarLetra} = require('./ahorcado.js');
+const {adivinarPalabra, adivinarLetra, elegirPalabra, ocultarPalabra} = require('./ahorcado.js');
 
 
 // TestAdivinarPalabra
@@ -56,4 +56,35 @@ test("no adivinar letra", () => {
 
   // Assert
   expect(resultado).toBe(false);
+})
+
+test("elegirPalabra no devueleve nulo o undefined", () => {
+
+  // Act 
+  const resultado = elegirPalabra();
+
+  // Assert
+  expect(resultado).not.toBeNull();
+  expect(resultado).not.toBeUndefined();
+})
+
+test("elegirPalabra no devuelve string vacío", () => {
+
+  // Act 
+  const resultado = elegirPalabra();
+
+  // Assert
+  expect(resultado.length).toBeGreaterThan(0);
+})
+
+test("ocultarPalabra no oculta palabra", () => {
+  //Arrange
+  palabraOcultar = "perro"
+
+  // Act 
+  const resultado = ocultarPalabra(palabraOcultar);
+
+  // Assert
+  expect(resultado).not.toBeNull();
+  expect(resultado).toContain("_");
 })
