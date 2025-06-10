@@ -11,6 +11,7 @@ async function inicializar(){
   try {
     const response = await fetch('palabras.json');
     datos = await response.json();
+    palabras = datos|
     consele.log(palabras);
   } catch (error) {
     console.error('Error al cargar el JSON:', error);
