@@ -63,6 +63,8 @@ test("no adivinar letra", () => {
 test("elegirPalabra no devueleve nulo o undefined", () => {
 
   // Act 
+
+  console.log(palabras)
   const resultado = elegirPalabra(palabras);
 
   // Assert

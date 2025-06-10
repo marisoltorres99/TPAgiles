@@ -7,6 +7,7 @@ function main(){
 
 
 function elegirPalabra(palabras){
+
   palabra = palabras.medio[Math.floor(Math.random() * palabras.medio.length)];
   return palabra;
 }
