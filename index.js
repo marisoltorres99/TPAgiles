@@ -1,8 +1,6 @@
-let palabras;
-
 function main(){
-  incializar();
-  palabra = elegirPalbra();
+  palabras = incializar();
+  palabra = elegirPalabra();
   mostrarPalabraOculta(palabra);
 }
 
@@ -12,16 +10,19 @@ async function inicializar(){
     const response = await fetch('palabras.json');
     datos = await response.json();
     palabras = datos|
-    consele.log(palabras);
+    console.log(palabras);
   } catch (error) {
     console.error('Error al cargar el JSON:', error);
   }
 
   //Cargar Dificultades
+  
+  return palabras;
 }
 
-function elegirPalabra(){
-  return;
+function elegirPalabra(palabras){
+  palabra = palabras.medio[Math.floor(Math.random() * palabras.medio.length)];
+  return palabra;
 }
 
 function mostrarPalabraOculta(palabra) {

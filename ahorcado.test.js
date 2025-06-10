@@ -59,9 +59,10 @@ test("no adivinar letra", () => {
 })
 
 test("elegirPalabra no devueleve nulo o undefined", () => {
-
+  //Arrange
+  palabras = inicalizar();
   // Act 
-  const resultado = elegirPalabra();
+  const resultado = elegirPalabra(palabras);
 
   // Assert
   expect(resultado).not.toBeNull();
@@ -69,9 +70,10 @@ test("elegirPalabra no devueleve nulo o undefined", () => {
 })
 
 test("elegirPalabra no devuelve string vacío", () => {
-
+  //Arrange
+  palabras = inicalizar();
   // Act 
-  const resultado = elegirPalabra();
+  const resultado = elegirPalabra(palabras);
 
   // Assert
   expect(resultado.length).toBeGreaterThan(0);
@@ -82,7 +84,7 @@ test("ocultarPalabra no oculta palabra", () => {
   palabraOcultar = "perro"
 
   // Act 
-  const resultado = ocultarPalabra(palabraOcultar);
+  const resultado = mostrarPalabraOcculta(palabraOcultar);
 
   // Assert
   expect(resultado).not.toBeNull();

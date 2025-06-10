@@ -1,7 +1,7 @@
 {
   "name": "agiles",
   "version": "1.0.0",
-  "main": "ahorcado_test.js",
+  "main": "index.js",
   "scripts": {
     "test": "jest --coverage"
   },
