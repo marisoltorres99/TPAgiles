@@ -1,24 +1,10 @@
+palabras = require('./palabras.js')
+
 function main(){
-  palabras = incializar();
-  palabra = elegirPalabra();
+  palabra = elegirPalabra(palabras);
   mostrarPalabraOculta(palabra);
 }
 
-async function inicializar(){
-  //Cargar banco de palabras
-  try {
-    const response = await fetch('palabras.json');
-    datos = await response.json();
-    palabras = datos|
-    console.log(palabras);
-  } catch (error) {
-    console.error('Error al cargar el JSON:', error);
-  }
-
-  //Cargar Dificultades
-  
-  return palabras;
-}
 
 function elegirPalabra(palabras){
   palabra = palabras.medio[Math.floor(Math.random() * palabras.medio.length)];
@@ -26,5 +12,7 @@ function elegirPalabra(palabras){
 }
 
 function mostrarPalabraOculta(palabra) {
-  return "_";
+  return "______";
 }
+
+module.exports = {elegirPalabra, mostrarPalabraOculta};

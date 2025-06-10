@@ -1,5 +1,7 @@
-const {adivinarPalabra, adivinarLetra, elegirPalabra, ocultarPalabra} = require('./ahorcado.js');
+const {adivinarPalabra, adivinarLetra} = require('./ahorcado.js');
+const { palabras } = require('./palabras.js')
 
+const {elegirPalabra, mostrarPalabraOculta} = require('./index.js')
 
 // TestAdivinarPalabra
 
@@ -59,8 +61,7 @@ test("no adivinar letra", () => {
 })
 
 test("elegirPalabra no devueleve nulo o undefined", () => {
-  //Arrange
-  palabras = inicalizar();
+
   // Act 
   const resultado = elegirPalabra(palabras);
 
@@ -70,23 +71,33 @@ test("elegirPalabra no devueleve nulo o undefined", () => {
 })
 
 test("elegirPalabra no devuelve string vacío", () => {
-  //Arrange
-  palabras = inicalizar();
+
   // Act 
-  const resultado = elegirPalabra(palabras);
+  const resultado = elegirPalabra();
 
   // Assert
   expect(resultado.length).toBeGreaterThan(0);
 })
 
-test("ocultarPalabra no oculta palabra", () => {
+test("mostrarPalabraOculta no oculta palabra", () => {
   //Arrange
   palabraOcultar = "perro"
 
   // Act 
-  const resultado = mostrarPalabraOcculta(palabraOcultar);
+  const resultado = mostrarPalabraOculta(palabraOcultar);
 
   // Assert
   expect(resultado).not.toBeNull();
   expect(resultado).toContain("_");
+})
+
+test("mostrarPalabraOculta no oculta palabra", () => {
+  //Arrange
+  palabraOcultar = "perro"
+
+  // Act 
+  const resultado = mostrarPalabraOculta(palabraOcultar);
+
+  // Assert
+  expect(resultado).toBe("______");
 })

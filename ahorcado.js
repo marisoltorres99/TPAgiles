@@ -12,17 +12,6 @@ function adivinarLetra(palabraAadvinar, letraAdivinada) {
   }
     return false;
 }
-// TODO: Hacer banco de palabras 
-// TODO: Seleccionar una palabra aleatoria 
-function elegirPalabra(){
-  return "Arboleda";
-}
-
-// PEPE
-// ****
-function ocultarPalabra(palabra) {
-  return "_";
-}
 
 
 
@@ -31,4 +20,4 @@ function ocultarPalabra(palabra) {
 
 
 
-module.exports = {adivinarPalabra, adivinarLetra, elegirPalabra, ocultarPalabra};
+module.exports = {adivinarPalabra, adivinarLetra};
