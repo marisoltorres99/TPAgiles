@@ -2,11 +2,19 @@ palabras = require('./palabras.js')
 
 class Ahorcado{ 
   constructor(palabra) {
+    this.palabra = palabra;
     this.letrasAdivinadas = [];
-    this.intentosRestantes = 6; 
+    this.letrasFallidas = [];
+    this.fallosRestantes = 6; 
     this.dificultad = "";
     this.arrayPalabras = this.palabra.split("");
   }
+  adivinarLetra(letraAdivinada) {
+  if (this.palabra.includes(letraAdivinada)){
+    return true;
+  }
+    return false;
+}
 } 
 
 function main(){

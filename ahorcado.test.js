@@ -114,3 +114,4 @@ test("mostrarPalabraOculta con guiones", () => {
   // Assert
   expect(resultado).toBe("_ _ _ _");
 })
+

@@ -6,12 +6,7 @@ function adivinarPalabra(palabraAadvinar,palabraAdivinada) {
   return false;
 }
 
-function adivinarLetra(palabraAadvinar, letraAdivinada) {
-  if (palabraAadvinar.includes(letraAdivinada)){
-    return true;
-  }
-    return false;
-}
+
 
 
 
