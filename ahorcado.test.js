@@ -93,7 +93,7 @@ test("mostrarPalabraOculta no oculta palabra", () => {
   expect(resultado).toContain("_");
 })
 
-test("mostrarPalabraOculta no oculta palabra", () => {
+test("mostrarPalabraOculta oculta palabra", () => {
   //Arrange
   palabraOcultar = "perro"
 
@@ -101,5 +101,16 @@ test("mostrarPalabraOculta no oculta palabra", () => {
   const resultado = mostrarPalabraOculta(palabraOcultar);
 
   // Assert
-  expect(resultado).toBe("______");
+  expect(resultado).toBe("_ _ _ _ _");
+})
+
+test("mostrarPalabraOculta con guiones", () => {
+  //Arrange
+  palabraOcultar = "gato";
+
+  // Act 
+  const resultado = mostrarPalabraOculta(palabraOcultar);
+
+  // Assert
+  expect(resultado).toBe("_ _ _ _");
 })

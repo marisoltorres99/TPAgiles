@@ -13,7 +13,9 @@ function elegirPalabra(palabras){
 }
 
 function mostrarPalabraOculta(palabra) {
-  return "______";
+  const arrayPalabras = palabra.split("");
+  let palabraOculta = arrayPalabras.map(p => "_");
+  return palabraOculta.join(" ");
 }
 
 module.exports = {elegirPalabra, mostrarPalabraOculta};
