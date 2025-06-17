@@ -1,5 +1,14 @@
 palabras = require('./palabras.js')
 
+class Ahorcado{ 
+  constructor(palabra) {
+    this.letrasAdivinadas = [];
+    this.intentosRestantes = 6; 
+    this.dificultad = "";
+    this.arrayPalabras = this.palabra.split("");
+  }
+} 
+
 function main(){
   palabra = elegirPalabra(palabras);
   mostrarPalabraOculta(palabra);
