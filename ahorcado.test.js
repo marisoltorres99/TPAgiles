@@ -75,7 +75,7 @@ test("elegirPalabra no devueleve nulo o undefined", () => {
 test("elegirPalabra no devuelve string vacío", () => {
 
   // Act 
-  const resultado = elegirPalabra();
+  const resultado = elegirPalabra(palabras);
 
   // Assert
   expect(resultado.length).toBeGreaterThan(0);
