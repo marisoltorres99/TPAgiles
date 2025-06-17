@@ -10,10 +10,16 @@ class Ahorcado{
     this.arrayPalabras = this.palabra.split("");
   }
   adivinarLetra(letraAdivinada) {
+  //Checkear si la letra está en alguno de los arreglos de letras adivinadas o fallidas
   if (this.palabra.includes(letraAdivinada)){
+    //Agregar la letra en el array letrasAdivinadas
     return true;
   }
+    //Agregar la letra en el array letrasFallidas
+    //Restar un intento
     return false;
+  //Checkear si ganó o no
+  //Mostrar Palabra oculta e intentos restantes
 }
 } 
 
