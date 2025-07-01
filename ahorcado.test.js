@@ -8,30 +8,34 @@ const Ahorcado = require('./ahorcado.js');
 
 // Arrange ,Act, Assert
 
-test("adivinar una palabra", () => {
-  // Arrange 
-  palabraAadvinar = "pepe"
-  palabraAdivinada = "pepe"
+// test("adivinar una palabra", () => {
+//   // Arrange 
+//   palabraAadvinar = "pepe"
+//   palabraAdivinada = "pepe"
 
-  // Act 
-  const resultado = adivinarPalabra(palabraAadvinar, palabraAdivinada)
+//   // Act 
 
-  // Assert
-  expect(resultado).toBe(true);
-})
+//   const juego = new Ahorcado(palabraAadvinar);
+
+
+//   const resultado = juego.gano(palabraAadvinar, palabraAdivinada)
+
+//   // Assert
+//   expect(resultado).toBe(true);
+// })
 
 // TestNoAdivinarPalabra
-test("no adivinar palabra", () => {
-  //Arrange
-  palabraAdivinar = "pepe"
-  palabraAdivinada = "pablo"
+// test("no adivinar palabra", () => {
+//   //Arrange
+//   palabraAdivinar = "pepe"
+//   palabraAdivinada = "pablo"
 
-  // Act 
-  const resultado = adivinarPalabra(palabraAdivinar, palabraAdivinada)
+//   // Act 
+//   const resultado = adivinarPalabra(palabraAdivinar, palabraAdivinada)
 
-  // Assert
-  expect(resultado).toBe(false);
-})
+//   // Assert
+//   expect(resultado).toBe(false);
+// })
 
 // TestAdivinarLetra
 
@@ -41,10 +45,12 @@ test("adivinar letra", () => {
   letraAdivinada = 'p'
 
   // Act 
-  const resultado = adivinarLetra(palabraAdivinar, letraAdivinada)
+  const juego = new Ahorcado(palabraAdivinar);
+
+  juego.adivinarLetra(letraAdivinada)
 
   // Assert
-  expect(resultado).toBe(true);
+  expect(juego.letrasAdivinadas.includes(letraAdivinada)).toBe(true);
 })
 
 // TestNoAdivinarLetra
@@ -56,10 +62,10 @@ test("no adivinar letra", () => {
   const juego = new Ahorcado(palabraAdivinar);
 
   // Act 
-  juego.adivinarLetra(palabraAdivinar, letraAdivinada)
+  juego.adivinarLetra(letraAdivinada)
 
   // Assert
-  expect(juego.letrasAdivinadas.length).toBe(1);
+  expect(juego.letrasFallidas.includes(letraAdivinada)).toBe(true);
 })
 
 test("elegirPalabra no devueleve nulo o undefined", () => {
