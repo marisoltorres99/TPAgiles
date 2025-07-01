@@ -1,0 +1,15 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 30px;
+}
+
+#palabra-oculta {
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+#resultado {
+    font-weight: bold;
+    margin-top: 20px;
+    font-size: 1.2em;
+}

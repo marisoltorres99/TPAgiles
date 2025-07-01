@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Juego del Ahorcado</title>
+    <link rel="stylesheet" href="./styles.css" />
+</head>
+
+<body>
+    <h1>Juego del Ahorcado</h1>
+
+    <div id="palabra-oculta">_ _ _ _</div>
+
+    <div>
+        <label for="letra">Letra:</label>
+        <input type="text" id="letra" maxlength="1" />
+        <button id="adivinar">Adivinar</button>
+    </div>
+
+    <div id="fallos">Fallos restantes: 6</div>
+    <div id="letras-fallidas">Letras fallidas: </div>
+    <div id="resultado"></div>
+
+    <script src="../ahorcado.js"></script>
+    <script src="../palabras.js"></script>
+
+</body>
+
+</html>
