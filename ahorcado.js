@@ -1,4 +1,5 @@
-palabras = require('./palabras.js')
+const { palabras } = require('./palabras.js');
+
 
 
 class Ahorcado {
@@ -59,8 +60,10 @@ class Ahorcado {
     return this.fallosRestantes === 0;
   }
 
-  elegirPalabra(palabras) {
-    palabra = palabras.medio[Math.floor(Math.random() * palabras.medio.length)];
+  elegirPalabra() {
+    console.log(palabras.medio)
+    const palabra = palabras.medio[Math.floor(Math.random() * palabras.medio.length)];
+    
     return palabra;
   }
 

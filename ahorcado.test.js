@@ -1,6 +1,3 @@
-const { adivinarPalabra, adivinarLetra } = require('./ahorcado.js');
-const { palabras } = require('./palabras.js')
-
 const Ahorcado = require('./ahorcado.js');
 
 
@@ -71,9 +68,9 @@ test("no adivinar letra", () => {
 test("elegirPalabra no devueleve nulo o undefined", () => {
 
   // Act 
+  const juego = new Ahorcado();
 
-  console.log(palabras)
-  const resultado = elegirPalabra(palabras);
+  const resultado = juego.elegirPalabra();
 
   // Assert
   expect(resultado).not.toBeNull();
@@ -84,7 +81,7 @@ test("elegirPalabra no devuelve string vacío", () => {
   // Act 
   const juego = new Ahorcado();
 
-  const resultado = juego.elegirPalabra(palabras);
+  const resultado = juego.elegirPalabra();
 
   // Assert
   expect(resultado.length).toBeGreaterThan(0);
