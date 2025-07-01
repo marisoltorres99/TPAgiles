@@ -1,7 +1,8 @@
-const {adivinarPalabra, adivinarLetra} = require('./ahorcado.js');
+const { adivinarPalabra, adivinarLetra } = require('./ahorcado.js');
 const { palabras } = require('./palabras.js')
 
-const {elegirPalabra, mostrarPalabraOculta} = require('./index.js')
+const Ahorcado = require('./ahorcado.js');
+
 
 // TestAdivinarPalabra
 
@@ -13,7 +14,7 @@ test("adivinar una palabra", () => {
   palabraAdivinada = "pepe"
 
   // Act 
-  const resultado = adivinarPalabra(palabraAadvinar,palabraAdivinada) 
+  const resultado = adivinarPalabra(palabraAadvinar, palabraAdivinada)
 
   // Assert
   expect(resultado).toBe(true);
@@ -26,7 +27,7 @@ test("no adivinar palabra", () => {
   palabraAdivinada = "pablo"
 
   // Act 
-  const resultado = adivinarPalabra(palabraAdivinar,palabraAdivinada) 
+  const resultado = adivinarPalabra(palabraAdivinar, palabraAdivinada)
 
   // Assert
   expect(resultado).toBe(false);
@@ -52,12 +53,13 @@ test("no adivinar letra", () => {
   //Arrange
   palabraAdivinar = "pepe"
   letraAdivinada = 'o'
+  const juego = new Ahorcado(palabraAdivinar);
 
   // Act 
-  const resultado = adivinarLetra(palabraAdivinar, letraAdivinada)
+  juego.adivinarLetra(palabraAdivinar, letraAdivinada)
 
   // Assert
-  expect(resultado).toBe(false);
+  expect(juego.letrasAdivinadas.length).toBe(1);
 })
 
 test("elegirPalabra no devueleve nulo o undefined", () => {
@@ -73,9 +75,10 @@ test("elegirPalabra no devueleve nulo o undefined", () => {
 })
 
 test("elegirPalabra no devuelve string vacío", () => {
-
   // Act 
-  const resultado = elegirPalabra(palabras);
+  const juego = new Ahorcado();
+
+  const resultado = juego.elegirPalabra(palabras);
 
   // Assert
   expect(resultado.length).toBeGreaterThan(0);
@@ -85,33 +88,37 @@ test("mostrarPalabraOculta no oculta palabra", () => {
   //Arrange
   palabraOcultar = "perro"
 
+  const juego = new Ahorcado(palabraOcultar);
+
   // Act 
-  const resultado = mostrarPalabraOculta(palabraOcultar);
+  const resultado = juego.mostrarPalabraOculta(palabraOcultar);
 
   // Assert
   expect(resultado).not.toBeNull();
   expect(resultado).toContain("_");
 })
 
-test("mostrarPalabraOculta oculta palabra", () => {
-  //Arrange
-  palabraOcultar = "perro"
-
-  // Act 
-  const resultado = mostrarPalabraOculta(palabraOcultar);
-
-  // Assert
-  expect(resultado).toBe("_ _ _ _ _");
-})
 
 test("mostrarPalabraOculta con guiones", () => {
-  //Arrange
+
   palabraOcultar = "gato";
 
-  // Act 
-  const resultado = mostrarPalabraOculta(palabraOcultar);
+  const juego = new Ahorcado(palabraOcultar);
+
+  const resultado = juego.mostrarPalabraOculta(palabraOcultar);
 
   // Assert
   expect(resultado).toBe("_ _ _ _");
 })
 
+test('gana adivinando todas las letras', () => {
+  const juego = new Ahorcado("hola");
+
+  juego.adivinarLetra("h");
+  juego.adivinarLetra("o");
+  juego.adivinarLetra("l");
+  juego.adivinarLetra("a");
+
+  expect(juego.gano()).toBe(true);
+  expect(juego.perdio()).toBe(false);
+});

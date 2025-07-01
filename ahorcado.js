@@ -1,6 +1,10 @@
+palabras = require('./palabras.js')
+
+
 class Ahorcado {
   constructor(palabra) {
-    this.palabra = palabra;
+    // Inicializar el juego con una palabra aleatoria
+    this.palabra = palabra || this.elegirPalabra(palabras);
     this.letrasAdivinadas = [];
     this.letrasFallidas = [];
     this.fallosRestantes = 6;
@@ -19,10 +23,6 @@ class Ahorcado {
       this.fallosRestantes -= 1;
     }
 
-    //Mostrar Palabra oculta e intentos restantes
-
-
-
     if (this.gano()) {
       console.log("Ganaste la palabra es", this.palabra)
       return
@@ -35,15 +35,15 @@ class Ahorcado {
   }
 
   mostrarPalabraOculta() {
-      let palabraAMostrar = ""
-      for (const letra of this.palabra) {
+    let palabraAMostrar = ""
+    for (const letra of this.palabra) {
       if (this.letrasAdivinadas.includes(letra)) {
-        palabraAMostrar += letra
+        palabraAMostrar += letra + " "
       } else {
-        palabraAMostrar += "_"
+        palabraAMostrar += "_ "
       }
-      }
-    return palabraAMostrar.join(" ");
+    }
+    return palabraAMostrar.trim();
   }
 
   gano() {
@@ -57,6 +57,11 @@ class Ahorcado {
 
   perdio() {
     return this.fallosRestantes === 0;
+  }
+
+  elegirPalabra(palabras) {
+    palabra = palabras.medio[Math.floor(Math.random() * palabras.medio.length)];
+    return palabra;
   }
 
 }
