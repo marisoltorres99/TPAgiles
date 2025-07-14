@@ -65,6 +65,10 @@ class Ahorcado {
     return palabra;
   }
 
+  elegirDificultad(dif){
+    this.dificultad = dif;
+    return dif;
+  }
 }
 
 // inicializar el juego
