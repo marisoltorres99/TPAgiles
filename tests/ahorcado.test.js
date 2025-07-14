@@ -1,4 +1,5 @@
-const Ahorcado = require('./ahorcado.js');
+import {expect}  from 'expect'
+import  Ahorcado  from "../ahorcado.js";
 
 
 // TestAdivinarPalabra
@@ -111,4 +112,12 @@ test('gana adivinando todas las letras', () => {
 
   expect(juego.gano()).toBe(true);
   expect(juego.perdio()).toBe(false);
+});
+
+test("descubre todas las posiciones de una letra repetida", () => {
+  const juego = new Ahorcado("pepe");
+
+  juego.adivinarLetra("p");
+
+  expect(juego.palabraMostrada).toBe("p_p_");  
 });
