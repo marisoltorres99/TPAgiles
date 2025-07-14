@@ -1,6 +1,6 @@
-palabras = require('./palabras.js');
+import palabras from './palabras.js';  
 
-class Ahorcado {
+export default class Ahorcado {
   constructor(palabra) {
     // Inicializar el juego con una palabra aleatoria
     this.palabra = palabra || this.elegirPalabra(palabras);
@@ -70,5 +70,3 @@ class Ahorcado {
     return dif;
   }
 }
-
-module.exports = Ahorcado;
