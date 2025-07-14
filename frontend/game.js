@@ -1,3 +1,7 @@
+
+import Ahorcado from "../ahorcado.js";
+
+
 const juego = new Ahorcado("hola");
 
 const palabraOcultaEl = document.getElementById("palabra-oculta");
@@ -35,4 +39,3 @@ adivinarBtn.addEventListener("click", () => {
 
 actualizarVista();
 
-module.exports = Ahorcado;
