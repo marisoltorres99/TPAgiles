@@ -25,13 +25,17 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      # Opcional: Ejecutar tests si usás Jest
       - name: Run tests with coverage
         run: npm test -- --coverage || true
 
       - name: SonarCloud Scan
         uses: SonarSource/sonarcloud-github-action@v2
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         with:
-          organization: 'marisoltorres99'
-          projectKey: 'marisoltorres99_TPAgiles'
-          token: ${{ secrets.SONAR_TOKEN }}
+          args: >
+            -Dsonar.organization=marisoltorres99
+            -Dsonar.projectKey=marisoltorres99_TPAgiles
+            -Dsonar.sources=.
+            -Dsonar.tests=.
+            -Dsonar.javascript.lcov.reportPaths=coverage/lcov.info
