@@ -38,8 +38,8 @@ import  Ahorcado  from "../ahorcado.js";
 // TestAdivinarLetra
 
 test("adivinar letra", () => {
-  palabraAdivinar = "pepe"
-  letraAdivinada = 'p'
+  const palabraAdivinar = "pepe"
+  const letraAdivinada = 'p'
 
   const juego = new Ahorcado(palabraAdivinar);
 
@@ -50,8 +50,8 @@ test("adivinar letra", () => {
 
 
 test("no adivinar letra", () => {
-  palabraAdivinar = "pepe"
-  letraAdivinada = 'o'
+  const palabraAdivinar = "pepe"
+  const letraAdivinada = 'o'
   const juego = new Ahorcado(palabraAdivinar);
 
   juego.adivinarLetra(letraAdivinada)
@@ -80,7 +80,7 @@ test("elegirPalabra no devuelve string vacío", () => {
 
 test("mostrarPalabraOculta no oculta palabra", () => {
   
-  palabraOcultar = "perro"
+  const palabraOcultar = "perro"
 
   const juego = new Ahorcado(palabraOcultar);
 
@@ -93,7 +93,7 @@ test("mostrarPalabraOculta no oculta palabra", () => {
 
 test("mostrarPalabraOculta con guiones", () => {
 
-  palabraOcultar = "gato";
+  const palabraOcultar = "gato";
 
   const juego = new Ahorcado(palabraOcultar);
 
