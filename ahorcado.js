@@ -66,6 +66,10 @@ export default class Ahorcado {
   }
 
   elegirDificultad(dif){
+    console.log(dif)
+    if(dif !== "facil" && dif !== "medio" && dif !== "dificil"){
+      dif = "medio";
+    }
     this.dificultad = dif;
     return dif;
   }

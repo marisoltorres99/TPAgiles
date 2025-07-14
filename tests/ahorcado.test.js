@@ -121,3 +121,19 @@ test("descubre todas las posiciones de una letra repetida", () => {
 
   expect(juego.palabraMostrada).toBe("p_p_");  
 });
+
+test("Dificultad válida", () => {
+  const juego = new Ahorcado();
+
+  juego.elegirDificultad("facil");
+
+  expect(juego.dificultad).toBe("facil");  
+});
+
+test("Dificultad no válida (medio por defecto)", () => {
+  const juego = new Ahorcado();
+
+  juego.elegirDificultad("experto");
+
+  expect(juego.dificultad).toBe("medio");  
+});
