@@ -2,14 +2,34 @@
 import Ahorcado from "../ahorcado.js";
 
 
-const juego = new Ahorcado("hola");
-
+const juego = null;
 const palabraOcultaEl = document.getElementById("palabra-oculta");
 const fallosEl = document.getElementById("fallos");
 const letrasFallidasEl = document.getElementById("letras-fallidas");
 const resultadoEl = document.getElementById("resultado");
 const letraInput = document.getElementById("letra");
 const adivinarBtn = document.getElementById("adivinar");
+const botonesDificultad = document.querySelectorAll('.btn-dificultad');
+
+
+botonesDificultad.forEach(boton => {
+    boton.addEventListener('click', () => {
+        const dificultad = boton.getAttribute('data-dificultad');
+        console.log('Dificultad elegida:', dificultad);
+
+        // Ejemplo: ajustar fallos máximos según dificultad
+        let maxFallos;
+        if (dificultad === 'facil') maxFallos = 8;
+        else if (dificultad === 'medio') maxFallos = 6;
+        else maxFallos = 4;
+
+        ComenzarJuego(maxFallos, dificultad);
+    });
+});
+
+function ComenzarJuego(){
+    juego = new Ahorcado(dificultad);
+}
 
 function actualizarVista() {
     palabraOcultaEl.textContent = juego.mostrarPalabraOculta();
