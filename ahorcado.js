@@ -69,4 +69,16 @@ export default class Ahorcado {
     this.dificultad = dif;
     return dif;
   }
+
+   get palabraMostrada() {
+    let resultado = '';
+    for (let char of this.palabra) {
+      if (this.letrasAdivinadas.includes(char)) {
+        resultado += char;
+      } else {
+        resultado += '_';
+      }
+    }
+    return resultado;
+  }
 }
