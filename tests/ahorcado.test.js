@@ -1,5 +1,5 @@
-const { default: expect } = require('expect');
-const Ahorcado = require('./ahorcado.js');
+import {expect}  from 'expect'
+import  Ahorcado  from "../ahorcado.js";
 
 
 // TestAdivinarPalabra
