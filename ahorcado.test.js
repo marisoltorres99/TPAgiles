@@ -38,66 +38,54 @@ const Ahorcado = require('./ahorcado.js');
 // TestAdivinarLetra
 
 test("adivinar letra", () => {
-  //Arrange
   palabraAdivinar = "pepe"
   letraAdivinada = 'p'
 
-  // Act 
   const juego = new Ahorcado(palabraAdivinar);
 
   juego.adivinarLetra(letraAdivinada)
 
-  // Assert
   expect(juego.letrasAdivinadas.includes(letraAdivinada)).toBe(true);
 })
 
-// TestNoAdivinarLetra
 
 test("no adivinar letra", () => {
-  //Arrange
   palabraAdivinar = "pepe"
   letraAdivinada = 'o'
   const juego = new Ahorcado(palabraAdivinar);
 
-  // Act 
   juego.adivinarLetra(letraAdivinada)
 
-  // Assert
   expect(juego.letrasFallidas.includes(letraAdivinada)).toBe(true);
 })
 
 test("elegirPalabra no devueleve nulo o undefined", () => {
 
-  // Act 
   const juego = new Ahorcado();
 
   const resultado = juego.elegirPalabra();
 
-  // Assert
   expect(resultado).not.toBeNull();
   expect(resultado).not.toBeUndefined();
 })
 
 test("elegirPalabra no devuelve string vacío", () => {
-  // Act 
   const juego = new Ahorcado();
 
   const resultado = juego.elegirPalabra();
 
-  // Assert
+
   expect(resultado.length).toBeGreaterThan(0);
 })
 
 test("mostrarPalabraOculta no oculta palabra", () => {
-  //Arrange
+  
   palabraOcultar = "perro"
 
   const juego = new Ahorcado(palabraOcultar);
 
-  // Act 
   const resultado = juego.mostrarPalabraOculta(palabraOcultar);
 
-  // Assert
   expect(resultado).not.toBeNull();
   expect(resultado).toContain("_");
 })
@@ -111,7 +99,6 @@ test("mostrarPalabraOculta con guiones", () => {
 
   const resultado = juego.mostrarPalabraOculta(palabraOcultar);
 
-  // Assert
   expect(resultado).toBe("_ _ _ _");
 })
 
