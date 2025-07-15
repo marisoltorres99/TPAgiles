@@ -123,15 +123,6 @@ test("descubre todas las posiciones de una letra repetida", () => {
 });
 
 
-test("descubre todas las posiciones de una letra repetida", () => {
-  const juego = new Ahorcado("pepe");
-
-  juego.adivinarLetra("p");
-
-  expect(juego.palabraMostrada).toBe("p_p_");
-  expect(juego.mostrarPalabraOculta()).toBe("p _ p _");
-});
-
 test("Dificultad válida", () => {
   const juego = new Ahorcado();
 

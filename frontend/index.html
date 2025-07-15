@@ -18,17 +18,19 @@
         <button class="btn-dificultad" data-dificultad="dificil">Difícil</button>
     </div>
 
-    <div id="palabra-oculta">_ _ _ _</div>
-
-    <div>
-        <label for="letra">Letra:</label>
-        <input type="text" id="letra" maxlength="1" />
-        <button id="adivinar">Adivinar</button>
+    <div id="juego" style="display: none;">
+        <div id="palabra-oculta">_ _ _ _</div>
+    
+        <div>
+            <label for="letra">Letra:</label>
+            <input type="text" id="letra" maxlength="1" />
+            <button id="adivinar">Adivinar</button>
+        </div>
+    
+        <div id="fallos">Fallos restantes: 6</div>
+        <div id="letras-fallidas">Letras fallidas: </div>
+        <div id="resultado"></div>
     </div>
-
-    <div id="fallos">Fallos restantes: 6</div>
-    <div id="letras-fallidas">Letras fallidas: </div>
-    <div id="resultado"></div>
 
     <script type="module" src="game.js"></script>
     <script type="module" src="../palabras.js"></script>
