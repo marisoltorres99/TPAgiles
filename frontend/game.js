@@ -17,7 +17,10 @@ botonesDificultad.forEach(boton => {
         const dificultad = boton.getAttribute('data-dificultad');
         console.log('Dificultad elegida:', dificultad);
 
-        // Ejemplo: ajustar fallos máximos según dificultad
+        document.getElementById('juego').style.display = 'block';
+
+        document.getElementById('dificultad-container').style.display = 'none';
+
         let maxFallos;
         if (dificultad === 'facil') maxFallos = 8;
         else if (dificultad === 'medio') maxFallos = 6;
@@ -27,8 +30,8 @@ botonesDificultad.forEach(boton => {
     });
 });
 
-function ComenzarJuego(){
-    juego = new Ahorcado(dificultad);
+function ComenzarJuego(dificultad){
+    juego = new Ahorcado(undefined,dificultad);
 }
 
 function actualizarVista() {
