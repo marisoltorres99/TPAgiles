@@ -1,13 +1,13 @@
 import palabras from './palabras.js';  
 
 export default class Ahorcado {
-  constructor(palabra) {
+  constructor(palabra, dificultad) {
     // Inicializar el juego con una palabra aleatoria
+    this.dificultad = dificultad || this.elegirDificultad("medio");
     this.palabra = palabra || this.elegirPalabra(palabras);
     this.letrasAdivinadas = [];
     this.letrasFallidas = [];
     this.fallosRestantes = 6;
-    this.dificultad = "";
     this.arrayPalabras = this.palabra.split("");
   }
   adivinarLetra(letraAdivinada) {
@@ -59,14 +59,13 @@ export default class Ahorcado {
   }
 
   elegirPalabra() {
-    console.log(palabras.medio)
-    const palabra = palabras.medio[Math.floor(Math.random() * palabras.medio.length)];
+    //console.log(palabras[this.dificultad])
+    const palabra = palabras[this.dificultad][Math.floor(Math.random() * palabras[this.dificultad].length)];
 
     return palabra;
   }
 
   elegirDificultad(dif){
-    console.log(dif)
     if(dif !== "facil" && dif !== "medio" && dif !== "dificil"){
       dif = "medio";
     }
