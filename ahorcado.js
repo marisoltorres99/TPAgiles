@@ -22,13 +22,8 @@ export default class Ahorcado {
       this.fallosRestantes -= 1;
     }
 
-    if (this.gano()) {
-      console.log("Ganaste la palabra es", this.palabra)
-      return
-    }
-    if (this.perdio()) {
-      console.log("Perdio la partida la palabra era: ", this.palabra)
-    }
+    if (this.gano()) return 'gano';
+    if (this.perdio()) return 'perdio';
 
     return false;
   }
