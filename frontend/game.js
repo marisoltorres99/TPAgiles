@@ -36,7 +36,15 @@ function actualizarVista() {
     letrasFallidasEl.textContent = `Letras fallidas: ${juego.letrasFallidas.join(
         ", "
     )}`;
+    actualizarImagenAhorcado(juego.fallosRestantes);
+
 }
+
+function actualizarImagenAhorcado(fallosRestantes) {
+    const img = document.getElementById('imagen-ahorcado');
+    const indice = 6 - fallosRestantes; 
+    img.src = `../img/el-ahorcado${indice}.png`;
+  }
 
 adivinarBtn.addEventListener("click", () => {
     const letra = letraInput.value.trim().toLowerCase();
@@ -44,6 +52,7 @@ adivinarBtn.addEventListener("click", () => {
         return;
     }
     juego.adivinarLetra(letra);
+
     actualizarVista();
 
     if (juego.gano()) {
