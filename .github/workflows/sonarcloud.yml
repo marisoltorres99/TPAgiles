@@ -36,6 +36,4 @@ jobs:
           args: >
             -Dsonar.organization=marisoltorres99
             -Dsonar.projectKey=marisoltorres99_TPAgiles
-            -Dsonar.sources=.
-            -Dsonar.tests=.
             -Dsonar.javascript.lcov.reportPaths=coverage/lcov.info
