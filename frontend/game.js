@@ -1,6 +1,5 @@
 
-import Ahorcado from "../ahorcado.js";
-
+import Ahorcado from "./ahorcado.js";
 
 var juego = null;
 const palabraOcultaEl = document.getElementById("palabra-oculta");
@@ -43,7 +42,7 @@ function actualizarVista() {
 function actualizarImagenAhorcado(fallosRestantes) {
     const img = document.getElementById('imagen-ahorcado');
     const indice = 6 - fallosRestantes; 
-    img.src = `../img/el-ahorcado${indice}.png`;
+    img.src = `./img/el-ahorcado${indice}.png`;
   }
 
 adivinarBtn.addEventListener("click", () => {
@@ -65,5 +64,4 @@ adivinarBtn.addEventListener("click", () => {
     letraInput.value = "";
 });
 
-actualizarVista();
 
