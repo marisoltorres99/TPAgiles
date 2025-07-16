@@ -4,7 +4,7 @@ import { chromium } from 'playwright';
 let browser, page;
 
 BeforeAll(async () => {
-  browser = await chromium.launch();
+  browser = await chromium.launch({ headless: false, slowMo: 200 });
   page = await browser.newPage();
 });
 
@@ -13,7 +13,7 @@ AfterAll(async () => {
 });
 
 Given('abro el juego', async () => {
-  await page.goto('http://localhost:5500/frontend/');
+  await page.goto('http://localhost:8000/frontend/');
 });
 
 When('elijo la dificultad {string}', async (dificultad) => {
