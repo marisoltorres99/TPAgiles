@@ -30,10 +30,8 @@ jobs:
           name: coverage-report
           path: coverage
 
-      # 🎯 INSTALACIÓN DE PLAYWRIGHT Y DEPENDENCIAS PARA TEST E2E
       - name: Instalar navegadores de Playwright
         run: npx playwright install --with-deps
 
-      # 🧪 TESTS DE ACEPTACIÓN: corre http-server y luego cucumber-js
       - name: Ejecutar tests de aceptación (Cucumber + Playwright)
         run: npx start-server-and-test "http-server -p 8000" http://localhost:8000 "cucumber-js"
