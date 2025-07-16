@@ -2,7 +2,7 @@
 import Ahorcado from "../ahorcado.js";
 
 
-const juego = null;
+var juego = null;
 const palabraOcultaEl = document.getElementById("palabra-oculta");
 const fallosEl = document.getElementById("fallos");
 const letrasFallidasEl = document.getElementById("letras-fallidas");
@@ -21,17 +21,13 @@ botonesDificultad.forEach(boton => {
 
         document.getElementById('dificultad-container').style.display = 'none';
 
-        let maxFallos;
-        if (dificultad === 'facil') maxFallos = 8;
-        else if (dificultad === 'medio') maxFallos = 6;
-        else maxFallos = 4;
-
-        ComenzarJuego(maxFallos, dificultad);
+        ComenzarJuego(dificultad);
     });
 });
 
 function ComenzarJuego(dificultad){
     juego = new Ahorcado(undefined,dificultad);
+    actualizarVista();
 }
 
 function actualizarVista() {

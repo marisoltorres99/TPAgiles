@@ -1,9 +1,9 @@
 import palabras from './palabras.js';  
 
 export default class Ahorcado {
-  constructor(palabra, dificultad) {
-    // Inicializar el juego con una palabra aleatoria
-    this.dificultad = dificultad || this.elegirDificultad("medio");
+  constructor(palabra, dificultad = "medio") {
+
+    this.dificultad = dificultad;
     this.palabra = palabra || this.elegirPalabra(palabras);
     this.letrasAdivinadas = [];
     this.letrasFallidas = [];
@@ -59,9 +59,9 @@ export default class Ahorcado {
   }
 
   elegirPalabra() {
-    //console.log(palabras[this.dificultad])
-    const palabra = palabras[this.dificultad][Math.floor(Math.random() * palabras[this.dificultad].length)];
+    console.log(palabras)
 
+    const palabra = palabras[this.dificultad][Math.floor(Math.random() * palabras[this.dificultad].length)];
     return palabra;
   }
 
