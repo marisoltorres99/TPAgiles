@@ -4,7 +4,7 @@ import { chromium } from 'playwright';
 let browser, page;
 
 BeforeAll(async () => {
-  browser = await chromium.launch({ headless: true, slowMo: 200 });
+  browser = await chromium.launch();
   page = await browser.newPage();
 });
 

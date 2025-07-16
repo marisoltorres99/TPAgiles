@@ -34,4 +34,4 @@ jobs:
         run: npx playwright install --with-deps
 
       - name: Ejecutar tests de aceptación (Cucumber + Playwright)
-        run: npx start-server-and-test "npx http-server ./frontend -p 8000" http://localhost:8000 "cucumber-js"
+        run: npx start-server-and-test "npx http-server ./frontend -p 8000" http://127.0.0.1:8000 "cucumber-js"
