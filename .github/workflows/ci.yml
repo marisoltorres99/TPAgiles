@@ -1,10 +1,10 @@
-name: Node.js CI
+name: CI completo (Tests, SonarCloud y Aceptación)
 
 on:
   push:
-    branches: [ main ]
+    branches: [main]
   pull_request:
-    branches: [ main ]
+    branches: [main]
 
 jobs:
   build:
@@ -12,14 +12,30 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
+
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
           node-version: '18'
-      - run: npm install
-      - run: npm test -- --coverage
-      - name: Upload coverage
-        uses: actions/upload-artifact@v4
+
+      - name: Instalar dependencias
+        run: npm install
+
+      - name: Correr tests unitarios con cobertura
+        run: npm test -- --coverage
+
+      - name: SonarCloud Scan
+        uses: SonarSource/sonarcloud-github-action@v2
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         with:
-          name: coverage-report
-          path: coverage
+          args: >
+            -Dsonar.organization=marisoltorres99
+            -Dsonar.projectKey=marisoltorres99_TPAgiles
+            -Dsonar.javascript.lcov.reportPaths=coverage/lcov.info
+
+      - name: Instalar navegadores de Playwright
+        run: npx playwright install --with-deps
+
+      - name: Ejecutar tests de aceptación (Cucumber + Playwright)
+        run: npx start-server-and-test "npx http-server -p 8000" http://127.0.0.1:8000 "cucumber-js"

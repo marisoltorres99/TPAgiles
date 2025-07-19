@@ -1,5 +1,5 @@
 import  { expect }  from 'expect'
-import  Ahorcado  from "../ahorcado.js";
+import  Ahorcado  from "../frontend/ahorcado.js";
 
 
 // TestAdivinarPalabra

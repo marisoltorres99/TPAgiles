@@ -15,7 +15,7 @@ AfterAll(async () => {
 
 // Scenario: Elegir dificultad y hacer un intento
 Given('abro el juego', async () => {
-  await page.goto('http://localhost:8000/frontend/');
+  await page.goto('http://localhost:5500/frontend/');
 });
 
 When('elijo la dificultad {string}', async (dificultad) => {
