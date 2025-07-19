@@ -1,20 +1,15 @@
-/* Centrar todo el contenido vertical y horizontalmente */
 body {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    /* vertical */
     align-items: center;
-    /* horizontal */
     height: 100vh;
-    /* 100% de la altura de la ventana */
     margin: 0;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background: #f0f4f8;
     color: #333;
 }
 
-/* Contenedor general del juego para limitar el ancho */
 #dificultad-container,
 #palabra-oculta,
 div {
@@ -24,7 +19,6 @@ div {
     text-align: center;
 }
 
-/* Botones dificultad más bonitos */
 #dificultad-container {
     margin-bottom: 30px;
 }
@@ -45,7 +39,6 @@ div {
     background-color: #0056b3;
 }
 
-/* Estilo input y botón adivinar */
 input#letra {
     width: 40px;
     font-size: 18px;
