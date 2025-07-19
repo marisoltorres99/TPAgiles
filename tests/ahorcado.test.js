@@ -161,3 +161,4 @@ test("Cuando una letra ya fue ingresada, debería devolver un string vacío", ()
 
   expect(resultado).toBe(""); // Esperamos string vacío
 });
+
