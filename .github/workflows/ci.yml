@@ -37,5 +37,6 @@ jobs:
       - name: Instalar navegadores de Playwright
         run: npx playwright install --with-deps
 
-      - name: Ejecutar tests de aceptación (Cucumber + Playwright)
-        run: npx start-server-and-test "npx http-server -p 8000" http://127.0.0.1:8000 "cucumber-js"
+      - name: Ejecutar tests de aceptación con cobertura (nyc + Cucumber + Playwright)
+        run: npx start-server-and-test "npx http-server -p 8000" http://127.0.0.1:8000 "npm run test:at"
+

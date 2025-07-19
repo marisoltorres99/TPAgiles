@@ -6,7 +6,8 @@
   "scripts": {
     "test": "node --experimental-vm-modules ./node_modules/jest/bin/jest.js",
     "test-cucumber": "cucumber-js",
-    "test:e2e": "start-server-and-test 'http-server -p 8000' http://localhost:8000 'cucumber-js'"
+    "test:e2e": "start-server-and-test 'http-server -p 8000' http://localhost:8000 'cucumber-js'",
+    "test:at": "nyc --reporter=lcov cucumber-js"
   },
   "keywords": [],
   "author": "",
@@ -16,6 +17,7 @@
     "@cucumber/cucumber": "^11.3.0",
     "http-server": "^14.1.1",
     "jest": "^29.7.0",
+    "nyc": "^17.1.0",
     "start-server-and-test": "^2.0.12"
   },
   "dependencies": {
