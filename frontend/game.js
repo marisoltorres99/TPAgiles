@@ -15,7 +15,6 @@ const reiniciarBtn = document.getElementById("reiniciar");
 botonesDificultad.forEach(boton => {
     boton.addEventListener('click', () => {
         const dificultad = boton.getAttribute('data-dificultad');
-        console.log('Dificultad elegida:', dificultad);
 
         document.getElementById('juego').style.display = 'block';
 
