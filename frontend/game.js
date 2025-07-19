@@ -9,6 +9,7 @@ const resultadoEl = document.getElementById("resultado");
 const letraInput = document.getElementById("letra");
 const adivinarBtn = document.getElementById("adivinar");
 const botonesDificultad = document.querySelectorAll('.btn-dificultad');
+const reiniciarBtn = document.getElementById("reiniciar");
 
 
 botonesDificultad.forEach(boton => {
@@ -45,6 +46,22 @@ function actualizarImagenAhorcado(fallosRestantes) {
     img.src = `./img/el-ahorcado${indice}.png`;
   }
 
+reiniciarBtn.addEventListener("click", () => {
+    document.getElementById("dificultad-container").style.display = "block";
+
+    document.getElementById("juego").style.display = "none";
+
+    palabraOcultaEl.textContent = "";
+    fallosEl.textContent = "";
+    letrasFallidasEl.textContent = "";
+    resultadoEl.textContent = "";
+    letraInput.value = "";
+    adivinarBtn.disabled = false;
+    reiniciarBtn.style.display = "none";
+
+    actualizarImagenAhorcado(6);
+});
+
 adivinarBtn.addEventListener("click", () => {
     const letra = letraInput.value.trim().toLowerCase();
     if (letra === "") {
@@ -57,9 +74,13 @@ adivinarBtn.addEventListener("click", () => {
     if (juego.gano()) {
         resultadoEl.textContent = "🎉 ¡Ganaste! La palabra era " + juego.palabra;
         adivinarBtn.disabled = true;
+        reiniciarBtn.style.display = "inline-block";
+
     } else if (juego.perdio()) {
         resultadoEl.textContent = "💀 Perdiste. La palabra era " + juego.palabra;
         adivinarBtn.disabled = true;
+        reiniciarBtn.style.display = "inline-block";
+
     }
     letraInput.value = "";
 });
