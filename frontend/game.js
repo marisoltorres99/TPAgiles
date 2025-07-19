@@ -1,7 +1,7 @@
 
 import Ahorcado from "./ahorcado.js";
 
-var juego = null;
+let juego = null;
 const palabraOcultaEl = document.getElementById("palabra-oculta");
 const fallosEl = document.getElementById("fallos");
 const letrasFallidasEl = document.getElementById("letras-fallidas");
