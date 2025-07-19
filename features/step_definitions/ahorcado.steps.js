@@ -57,3 +57,11 @@ Then('debería ver la letra {string} en letras fallidas', async (letraFallida) =
   }
 });
 
+Then('debería cambiar la imagen del ahorcado', async () => {
+  const imagen = await page.getAttribute('#imagen-ahorcado', 'src');
+  if (imagen === './img/el-ahorcado0.png') {
+    throw new Error('La imagen del ahorcado no cambió tras un fallo');
+  }
+});
+
+
