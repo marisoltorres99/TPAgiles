@@ -138,3 +138,12 @@ test("Dificultad no válida (medio por defecto)", () => {
 
   expect(juego.dificultad).toBe("medio");  
 });
+
+test("Cuando una letra ya fue ingresada, debería devolver un string vacío", () => {
+  const juego = new Ahorcado("palabra");
+
+  juego.adivinarLetra("a"); // Primera vez
+  const resultado = juego.adivinarLetra("a"); // Segunda vez
+
+  expect(resultado).toBe(""); // Esperamos string vacío
+});
