@@ -18,3 +18,10 @@ Feature: Jugar al ahorcado
     And escribo la letra "z"
     And presiono el botón Adivinar
     Then debería ver la letra "z" en letras fallidas
+  
+  Scenario: Cambiar imagen del ahorcado al fallar
+    Given abro el juego
+    When elijo la dificultad "facil"
+    And escribo la letra "x"
+    And presiono el botón Adivinar
+    Then debería cambiar la imagen del ahorcado
