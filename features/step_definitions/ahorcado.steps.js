@@ -50,5 +50,10 @@ Then('debería ver la palabra oculta en pantalla', async () => {
   }
 });
 
-
+Then('debería ver la letra {string} en letras fallidas', async (letraFallida) => {
+  const letrasFallidas = await page.textContent('#letras-fallidas');
+  if (!letrasFallidas.includes(letraFallida)) {
+    throw new Error(`La letra fallida "${letraFallida}" no se muestra`);
+  }
+});
 
