@@ -12,7 +12,11 @@ export default class Ahorcado {
   }
   adivinarLetra(letraAdivinada) {
     if (this.letrasAdivinadas.includes(letraAdivinada) || this.letrasFallidas.includes(letraAdivinada)) {
+<<<<<<< HEAD
       return "";
+=======
+      return '';
+>>>>>>> 2371203dbbeccb514fead313ed77b7626deac84c
     }
     if (this.palabra.includes(letraAdivinada)) {
       this.letrasAdivinadas.push(letraAdivinada);

@@ -108,10 +108,24 @@ test('gana adivinando todas las letras', () => {
   juego.adivinarLetra("h");
   juego.adivinarLetra("o");
   juego.adivinarLetra("l");
-  juego.adivinarLetra("a");
 
+  expect(juego.adivinarLetra("a")).toBe('gano');
   expect(juego.gano()).toBe(true);
   expect(juego.perdio()).toBe(false);
+});
+
+test('pierde partida agotando los 6 intentos', () => {
+  const juego = new Ahorcado("hola");
+
+  juego.adivinarLetra("m");
+  juego.adivinarLetra("k");
+  juego.adivinarLetra("ñ");
+  juego.adivinarLetra("p");
+  juego.adivinarLetra("i");
+
+  expect(juego.adivinarLetra("u")).toBe('perdio');
+  expect(juego.perdio()).toBe(true);
+
 });
 
 test("descubre todas las posiciones de una letra repetida", () => {
