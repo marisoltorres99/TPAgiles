@@ -12,7 +12,6 @@ export default class Ahorcado {
   }
   adivinarLetra(letraAdivinada) {
     if (this.letrasAdivinadas.includes(letraAdivinada) || this.letrasFallidas.includes(letraAdivinada)) {
-      console.log(`"La letra "${letraAdivinada} ya fue intentada"`);
       return;
     }
     if (this.palabra.includes(letraAdivinada)) {
@@ -25,7 +24,7 @@ export default class Ahorcado {
     if (this.gano()) return 'gano';
     if (this.perdio()) return 'perdio';
 
-    return false;
+    return '';
   }
 
   mostrarPalabraOculta() {
@@ -54,8 +53,6 @@ export default class Ahorcado {
   }
 
   elegirPalabra() {
-    console.log(palabras)
-
     const palabra = palabras[this.dificultad][Math.floor(Math.random() * palabras[this.dificultad].length)];
     return palabra;
   }
