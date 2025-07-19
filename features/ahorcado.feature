@@ -6,3 +6,4 @@ Feature: Jugar al ahorcado
     And escribo la letra "a"
     And presiono el botón Adivinar
     Then debería ver que se actualiza el estado del juego
+
