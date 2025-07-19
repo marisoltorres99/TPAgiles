@@ -162,3 +162,12 @@ test("Cuando una letra ya fue ingresada, debería devolver un string vacío", ()
   expect(resultado).toBe(""); // Esperamos string vacío
 });
 
+test('Si la letra fue adivinada, mostratPalabraOculta deberia mostrar dicha letra', () => {
+  const juego = new Ahorcado("palabra");
+
+  juego.adivinarLetra("p"); //Adivinamos una letra
+
+  const resultado = juego.mostrarPalabraOculta(); //llamo a la función
+  
+  expect(resultado).toContain("p");//Esperamos que contenga la letra
+});
