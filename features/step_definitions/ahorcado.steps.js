@@ -32,8 +32,6 @@ When('escribo la letra {string}', async (letra) => {
   await page.fill('#letra', letra); 
 });
 
-
-
 When('presiono el botón Adivinar', async () => {
   await page.click('#adivinar');
    // Esperar un poco para que el DOM se actualice
@@ -45,6 +43,12 @@ Then('debería ver que se actualiza el estado del juego', async () => {
    assert.ok(fallosTexto.includes('Fallos restantes'), 'El texto de fallos no se actualizó');
 });
 
+Then('debería ver la palabra oculta en pantalla', async () => {
+  const palabraOculta = await page.textContent('#palabra-oculta');
+  if (!palabraOculta || !palabraOculta.includes('_')) {
+    throw new Error('No se muestra la palabra oculta');
+  }
+});
 
 
 
