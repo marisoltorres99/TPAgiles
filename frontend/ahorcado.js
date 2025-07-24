@@ -10,7 +10,12 @@ export default class Ahorcado {
     this.fallosRestantes = 6;
     this.arrayPalabras = this.palabra.split("");
   }
+
   adivinarLetra(letraAdivinada) {
+
+    if (this.gano() || this.perdio()) {
+    return '';
+    }
     if (this.letrasAdivinadas.includes(letraAdivinada) || this.letrasFallidas.includes(letraAdivinada)) {
       return '';
     }

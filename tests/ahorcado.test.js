@@ -171,3 +171,56 @@ test('Si la letra fue adivinada, mostratPalabraOculta deberia mostrar dicha letr
   
   expect(resultado).toContain("p");//Esperamos que contenga la letra
 });
+
+test("No debería permitir seguir adivinando letras después de ganar", () => {
+  const juego = new Ahorcado("hola");
+
+  juego.adivinarLetra("h");
+  juego.adivinarLetra("o");
+  juego.adivinarLetra("l");
+  const resultadoGanar = juego.adivinarLetra("a"); 
+
+  // Intenta adivinar otra letra cuando ya ganó
+  const resultado = juego.adivinarLetra("z");
+
+  //Verificamos que NO permite seguir jugando
+  expect(resultado).toBe(""); 
+});
+
+test("No debería permitir seguir jugando después de perder", () => {
+  const juego = new Ahorcado("hola");
+
+  juego.adivinarLetra("x");
+  juego.adivinarLetra("y");
+  juego.adivinarLetra("z");
+  juego.adivinarLetra("w");
+  juego.adivinarLetra("q");
+  juego.adivinarLetra("t"); // pierde
+
+  const resultado = juego.adivinarLetra("h");
+  expect(resultado).toBe(""); // o comportamiento esperado
+});
+
+test("fallosRestantes se reduce al fallar", () => {
+  const juego = new Ahorcado("hola");
+
+  juego.adivinarLetra("x");
+
+  expect(juego.fallosRestantes).toBe(5);  
+});
+
+test("La misma letra no se guarda dos veces en letrasAdivinadas", () => {
+  const juego = new Ahorcado("perro");
+
+  juego.adivinarLetra("p");
+  juego.adivinarLetra("p");
+
+  expect(juego.letrasAdivinadas.filter(l => l === "p").length).toBe(1);
+});
+
+test("Ingreso de letra no válida no debería modificar estado del juego", () => {
+  const juego = new Ahorcado("gato");
+
+  const resultado = juego.adivinarLetra("1"); // o algún símbolo
+  expect(resultado).toBe(""); 
+});
