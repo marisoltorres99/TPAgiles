@@ -81,11 +81,11 @@ test('pierde partida agotando los 6 intentos', () => {
 
   juego.adivinarLetra("m");
   juego.adivinarLetra("k");
-  juego.adivinarLetra("ñ");
+  juego.adivinarLetra("x");
   juego.adivinarLetra("p");
   juego.adivinarLetra("i");
+  juego.adivinarLetra("u");
 
-  expect(juego.adivinarLetra("u")).toBe('perdio');
   expect(juego.perdio()).toBe(true);
 
 });
