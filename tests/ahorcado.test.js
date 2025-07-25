@@ -1,42 +1,6 @@
 import  { expect }  from 'expect'
 import  Ahorcado  from "../frontend/ahorcado.js";
 
-
-// TestAdivinarPalabra
-
-// Arrange ,Act, Assert
-
-// test("adivinar una palabra", () => {
-//   // Arrange 
-//   palabraAadvinar = "pepe"
-//   palabraAdivinada = "pepe"
-
-//   // Act 
-
-//   const juego = new Ahorcado(palabraAadvinar);
-
-
-//   const resultado = juego.gano(palabraAadvinar, palabraAdivinada)
-
-//   // Assert
-//   expect(resultado).toBe(true);
-// })
-
-// TestNoAdivinarPalabra
-// test("no adivinar palabra", () => {
-//   //Arrange
-//   palabraAdivinar = "pepe"
-//   palabraAdivinada = "pablo"
-
-//   // Act 
-//   const resultado = adivinarPalabra(palabraAdivinar, palabraAdivinada)
-
-//   // Assert
-//   expect(resultado).toBe(false);
-// })
-
-// TestAdivinarLetra
-
 test("adivinar letra", () => {
   const palabraAdivinar = "pepe"
   const letraAdivinada = 'p'
@@ -47,7 +11,6 @@ test("adivinar letra", () => {
 
   expect(juego.letrasAdivinadas.includes(letraAdivinada)).toBe(true);
 })
-
 
 test("no adivinar letra", () => {
   const palabraAdivinar = "pepe"
@@ -89,7 +52,6 @@ test("mostrarPalabraOculta no oculta palabra", () => {
   expect(resultado).not.toBeNull();
   expect(resultado).toContain("_");
 })
-
 
 test("mostrarPalabraOculta con guiones", () => {
 
@@ -135,7 +97,6 @@ test("descubre todas las posiciones de una letra repetida", () => {
 
   expect(juego.palabraMostrada).toBe("p_p_");  
 });
-
 
 test("Dificultad válida", () => {
   const juego = new Ahorcado();
