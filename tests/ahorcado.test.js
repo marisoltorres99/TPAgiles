@@ -185,3 +185,12 @@ test("Ingreso de letra no válida no debería modificar estado del juego", () =>
   const resultado = juego.adivinarLetra("1"); // o algún símbolo
   expect(resultado).toBe(""); 
 });
+
+test("No permite ingresar símbolos, números o más de una letra", () => {
+  const juego = new Ahorcado("gato");
+
+  expect(juego.adivinarLetra("3")).toBe("");    // número
+  expect(juego.adivinarLetra("@")).toBe("");    // símbolo
+  expect(juego.adivinarLetra("ab")).toBe("");   // más de una letra
+  expect(juego.adivinarLetra("")).toBe("");     // vacío
+});

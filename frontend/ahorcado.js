@@ -13,6 +13,9 @@ export default class Ahorcado {
 
   adivinarLetra(letraAdivinada) {
 
+    if (!/^[a-zA-Z]$/.test(letraAdivinada)) {
+    return ''; // devuelve string vacio si el caracter ingresado no es una letra
+    }
     if (this.gano() || this.perdio()) {
     return '';
     }
