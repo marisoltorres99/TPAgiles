@@ -41,7 +41,7 @@ export default class Ahorcado {
       if (this.letrasAdivinadas.includes(letra)) {
         palabraAMostrar += letra + " "
       } else {
-        palabraAMostrar += ""
+        palabraAMostrar += "_ "
       }
     }
     return palabraAMostrar.trim();
